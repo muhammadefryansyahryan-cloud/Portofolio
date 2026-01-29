@@ -1,215 +1,348 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Persiapan OSN Biologi - TOBI & FORBIO</title>
-    <!-- Memuat Tailwind CSS CDN untuk styling modern -->
+    <title>Muhammad Efryansyah | Web Portofolio Biologi</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Mengatur font dasar dan menambahkan scrolling halus untuk navigasi anchor */
-        html {
-            scroll-behavior: smooth;
-            font-family: 'Inter', sans-serif;
+        :root {
+            --emerald-600: #059669;
+            --slate-900: #0f172a;
         }
-        /* Gradient Background Biru Tua/Ungu Khas */
         body {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3700b3 100%);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
         }
-        /* Styling untuk section agar ada padding di atas navbar tetap */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .emerald-gradient {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(5, 150, 105, 0.15);
+        }
         section {
-            padding-top: 80px; 
-            margin-top: -80px; 
-        }
-        /* Styling untuk link ikon kontak */
-        .contact-icon-link:hover {
-            transform: scale(1.1);
-            transition: transform 0.2s;
-            color: #ffc107;
+            padding: 100px 0;
         }
     </style>
 </head>
-<body class="text-gray-900">
+<body class="text-slate-900 selection:bg-emerald-100 selection:text-emerald-900">
 
-    <!-- Navbar/Menu Utama (Sticky) -->
-    <nav class="sticky top-0 z-50 bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo/Judul Singkat -->
-                <div class="flex-shrink-0">
-                    <a href="#beranda" class="text-2xl font-extrabold text-blue-700 hover:text-purple-700 transition duration-300">OSN Biologi</a>
-                </div>
-                
-                <!-- Menu Navigasi -->
-                <div class="hidden sm:ml-6 sm:flex sm:space-x-4 lg:space-x-8">
-                    <a href="#beranda" class="text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-lg text-sm font-medium transition duration-150">Beranda</a>
-                    <a href="#materi" class="text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-lg text-sm font-medium transition duration-150">Materi & Soal</a>
-                    <a href="#tentang" class="text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-lg text-sm font-medium transition duration-150">Tentang Kami</a>
-                    <a href="#galeri" class="text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-lg text-sm font-medium transition duration-150">Galeri</a>
-                    <a href="#kontak" class="text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-lg text-sm font-medium transition duration-150">Kontak</a>
-                    <a href="#artikel" class="text-gray-600 hover:bg-gray-100 px-3 py-2 rounded-lg text-sm font-medium transition duration-150">Artikel</a>
-                </div>
+    <!-- Navigasi -->
+    <nav class="fixed top-0 w-full z-[100] glass-nav">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 emerald-gradient rounded-xl flex items-center justify-center text-white font-black shadow-lg shadow-emerald-200">E</div>
+                <span class="text-xl font-extrabold tracking-tighter uppercase">Efryansyah<span class="text-emerald-600">.</span></span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="text-xs font-bold text-slate-500 hover:text-emerald-600 transition-all uppercase tracking-widest">Beranda</a>
+                <a href="#about" class="text-xs font-bold text-slate-500 hover:text-emerald-600 transition-all uppercase tracking-widest">Profil</a>
+                <a href="#resources" class="text-xs font-bold text-slate-500 hover:text-emerald-600 transition-all uppercase tracking-widest">Materi</a>
+                <a href="#achievements" class="text-xs font-bold text-slate-500 hover:text-emerald-600 transition-all uppercase tracking-widest">Prestasi</a>
+                <a href="#contact" class="bg-slate-900 text-white px-6 py-3 rounded-xl text-xs font-bold hover:bg-emerald-600 transition-all shadow-xl shadow-slate-200 uppercase tracking-widest">Kontak</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle (Simplified) -->
+            <div class="md:hidden">
+                <i data-lucide="menu" class="w-6 h-6 text-slate-900"></i>
             </div>
         </div>
     </nav>
 
-    <!-- Kontainer Utama Konten -->
-    <main class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-        
-        <!-- Header Utama -->
-        <header class="text-center mb-16 bg-white p-8 rounded-xl shadow-2xl">
-            <h1 class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-2">
-                Persiapan OSN Biologi
-            </h1>
-            <p class="text-lg md:text-xl text-gray-500 font-medium">Memberi akses informasi mengenai persiapan OSN bidang Biologi bagi calon peserta.</p>
-        </header>
-
-        <!-- Section: Beranda / Artikel Utama -->
-        <section id="beranda" class="bg-white p-6 md:p-10 rounded-xl shadow-xl mb-10">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b-4 border-blue-500 pb-2">Beranda & Artikel: Mengawali Perjalanan OSN</h2>
-            
-            <p class="mb-4 text-gray-600">Selamat datang calon juara! Olimpiade Sains Nasional (OSN) Biologi adalah panggung untuk menguji pemahaman Anda yang mendalam tentang kehidupan. Persiapan yang terstruktur adalah kunci kesuksesan. Situs ini dirancang untuk memandu Anda melalui langkah-langkah penting, mulai dari penguasaan materi hingga strategi penyelesaian soal.</p>
-            
-            <h3 class="text-2xl font-semibold text-purple-700 mt-6 mb-3">Strategi Belajar Efektif</h3>
-            <p class="mb-4 text-gray-600">Fokus pada konsep dasar, bukan hanya hafalan. Biologi adalah ilmu yang saling terhubung. Pastikan Anda menguasai topik inti seperti Genetika, Fisiologi (Hewan & Tumbuhan), Ekologi, dan Biologi Sel. Gunakan sumber belajar yang terpercaya dan terstruktur, seperti yang kami sediakan di bagian Materi.</p>
-
-            <h3 class="text-2xl font-semibold text-purple-700 mt-6 mb-3">Pentingnya Latihan Soal</h3>
-            <p class="mb-4 text-gray-600">Soal-soal OSN Biologi seringkali memerlukan analisis mendalam dan kemampuan untuk menerapkan konsep. Latihan dengan soal-soal tahun sebelumnya dan soal-soal tingkat lanjut sangat penting. Ini akan melatih logika berpikir Anda dan membiasakan diri dengan format pertanyaan yang kompleks.</p>
-            
-            <a href="#top" class="text-blue-500 hover:text-blue-700 font-medium float-right">↑ Kembali ke atas</a>
-            <div class="clearfix"></div>
-        </section>
-
-        <!-- Section: Materi & Soal (Akses Google Drive) -->
-        <section id="materi" class="bg-white p-6 md:p-10 rounded-xl shadow-xl mb-10">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b-4 border-purple-500 pb-2">Materi, Soal, & Pembahasan</h2>
-            
-            <p class="mb-6 text-gray-600">Akses semua sumber daya belajar terbaik yang dikurasi oleh TOBI untuk persiapan OSN Biologi Anda:</p>
-            
-            <div class="space-y-4">
-                <!-- Link Materi -->
-                <div class="p-4 bg-gray-50 border-l-8 border-blue-600 rounded-lg shadow-md flex items-center justify-between flex-wrap">
-                    <span class="text-lg font-semibold text-gray-700">📚 Materi Lengkap</span>
-                    <a href="https://drive.google.com/drive/folders/1rBSFozil614RGroLWxWKHOGSb-dkweA2?usp=drive_link" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105 mt-2 md:mt-0">
-                        Akses G-Drive Materi &rarr;
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:40px_40px] opacity-40"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-black tracking-[0.2em] uppercase mb-8 border border-emerald-100">
+                    <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                    Finalis OSN Nasional Biologi 2025
+                </div>
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8">
+                    Muhammad <br>
+                    <span class="text-gradient">Efryansyah.</span>
+                </h1>
+                <p class="text-lg md:text-2xl text-slate-500 mb-12 leading-relaxed max-w-2xl font-medium">
+                    Antusias Biologi dari <span class="text-slate-900 font-bold underline decoration-emerald-400 underline-offset-4">SMAN 1 Subang</span>. Menekuni eksplorasi molekuler dan analisis konsep biologi serta perhitungan genetika.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="https://osnbiologi.netlify.app/" target="_blank" class="bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold flex items-center hover:bg-emerald-600 transition-all hover:scale-105 shadow-2xl shadow-slate-300">
+                        Kunjungi OSN Biologi <i data-lucide="globe" class="ml-2 w-5 h-5"></i>
                     </a>
-                </div>
-
-                <!-- Link Soal -->
-                <div class="p-4 bg-gray-50 border-l-8 border-yellow-600 rounded-lg shadow-md flex items-center justify-between flex-wrap">
-                    <span class="text-lg font-semibold text-gray-700">📝 Kumpulan Soal-Soal Latihan</span>
-                    <a href="https://drive.google.com/drive/folders/1fwxIyR-yEt3k7Iv7b2OV2fFgxIasxKfx?usp=drive_link" target="_blank" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105 mt-2 md:mt-0">
-                        Akses G-Drive Soal &rarr;
-                    </a>
-                </div>
-
-                <!-- Link Video Pembahasan -->
-                <div id="pembahasan" class="p-4 bg-gray-50 border-l-8 border-red-600 rounded-lg shadow-md flex items-center justify-between flex-wrap">
-                    <span class="text-lg font-semibold text-gray-700">🎬 Video Pembahasan Soal</span>
-                    <a href="http://www.youtube.com/@TOBI-Official-YT" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105 mt-2 md:mt-0">
-                        Kunjungi Channel YouTube TOBI &rarr;
-                    </a>
-                </div>
-            </div>
-            
-            <a href="#top" class="text-blue-500 hover:text-blue-700 font-medium float-right mt-6">↑ Kembali ke atas</a>
-            <div class="clearfix"></div>
-        </section>
-
-        <!-- Section: Tentang TOBI & FORBIO -->
-        <section id="tentang" class="bg-white p-6 md:p-10 rounded-xl shadow-xl mb-10">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b-4 border-green-500 pb-2">Tentang TOBI dan FORBIO</h2>
-            
-            <p class="mb-4 text-gray-600"><strong>TOBI (Tim Olimpiade Biologi Indonesia)</strong> adalah tim khusus yang didedikasikan untuk membimbing dan melatih siswa-siswa terbaik dalam menghadapi kompetisi Biologi di tingkat nasional maupun internasional.</p>
-            
-            <p class="mb-4 text-gray-600">Kami bekerja sama dengan <strong>FORBIO (Forum Biologi)</strong> untuk menciptakan ekosistem belajar yang suportif, menyediakan materi terkini, dan strategi kompetisi yang teruji. Visi kami adalah mencetak generasi ahli Biologi yang mampu bersaing di kancah dunia.</p>
-
-            <a href="#top" class="text-blue-500 hover:text-blue-700 font-medium float-right">↑ Kembali ke atas</a>
-            <div class="clearfix"></div>
-        </section>
-
-        <!-- Section: Galeri Foto (Hall of Fame) -->
-        <section id="galeri" class="bg-white p-6 md:p-10 rounded-xl shadow-xl mb-10">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b-4 border-orange-500 pb-2">Galeri Foto (Hall of Fame)</h2>
-            
-            <p class="mb-4 text-gray-600">Di sini Anda akan menemukan foto-foto inspiratif dari alumni, momen pelatihan, dan prestasi yang telah diraih oleh tim kami.</p>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Placeholder Galeri -->
-                <div class="bg-gray-200 h-32 rounded-lg flex items-center justify-center text-gray-500 text-center text-sm shadow-inner p-2">
-                    Foto Prestasi Juara OSN 2022 [Image of Trophy]
-                </div>
-                <div class="bg-gray-200 h-32 rounded-lg flex items-center justify-center text-gray-500 text-center text-sm shadow-inner p-2">
-                    Momen Pelatihan Intensif [Image of Students Studying]
-                </div>
-                <div class="bg-gray-200 h-32 rounded-lg flex items-center justify-center text-gray-500 text-center text-sm shadow-inner p-2">
-                    Tim OSN Biologi 2023 [Image of Team]
-                </div>
-                <div class="bg-gray-200 h-32 rounded-lg flex items-center justify-center text-gray-500 text-center text-sm shadow-inner p-2">
-                    Sesi Praktikum Lab [Image of Lab]
-                </div>
-            </div>
-
-            <a href="#top" class="text-blue-500 hover:text-blue-700 font-medium float-right mt-6">↑ Kembali ke atas</a>
-            <div class="clearfix"></div>
-        </section>
-
-        <!-- Section: Kontak -->
-        <section id="kontak" class="bg-white p-6 md:p-10 rounded-xl shadow-xl mb-10">
-            <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b-4 border-indigo-500 pb-2">Hubungi Kami</h2>
-            
-            <p class="mb-6 text-gray-600">Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan lebih lanjut mengenai persiapan OSN Biologi.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <!-- WA -->
-                <div class="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <a href="https://wa.me/6281220458305" target="_blank" class="text-green-500 contact-icon-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM6.92 14.15l.38-.13A6.27 6.27 0 0110 13c1.17 0 2.29.35 3.24.95l.38.12.35-.45c.4-.52.75-1.1.99-1.74l-.06-.11c.2-.38.32-.8.32-1.25 0-3.32-3.24-6-7.22-6-3.98 0-7.22 2.68-7.22 6s3.24 6 7.22 6c.72 0 1.4-.09 2.05-.25l.38-.12.35.45c-.4.52-.75 1.1-.99 1.74l.06.11c-.2.38-.32.8-.32 1.25 0 3.32 3.24 6 7.22 6s7.22-2.68 7.22-6c0-1.72-.5-3.33-1.37-4.68l.38-.13.35-.45c-.4-.52-.75-1.1-.99-1.74l.06-.11c-.2-.38-.32-.8-.32-1.25zM10 14c-.65 0-1.27-.12-1.85-.35l-.23-.08-.21.27c-.31.39-.63.78-.93 1.15l-.44.57c-.23.29-.5.53-.78.71l-.11-.06c-.38-.2-.73-.44-1.04-.75-.32-.32-.58-.69-.75-1.14l-.06-.11c.18-.28.42-.55.71-.78l.57-.44c.37-.3.76-.62 1.15-.93l.27-.21-.08-.23c-.23-.58-.35-1.2-.35-1.85 0-.58.12-1.15.35-1.68l-.27-.21c-.39-.31-.78-.63-1.15-.93l-.57-.44c-.29-.23-.53-.5-.71-.78l.06-.11c.2-.38.44-.73.75-1.04.32-.32.69-.58 1.14-.75l.11-.06c.28.18.55.42.78.71l.44.57c.3.37.62.76.93 1.15l.21.27.08-.23c.53-.23 1.1-.35 1.68-.35.65 0 1.27.12 1.85.35l.23.08.21-.27c.31-.39.63-.78.93-1.15l.44-.57c.23-.29.5-.53.78-.71l.11.06c.38.2.73.44 1.04.75.32.32.58.69.75 1.14l.06.11c-.18.28-.42.55-.71.78l-.44.57c-.3.37-.62.76-.93 1.15l-.21.27-.08.23c-.23.58-.35 1.2-.35 1.85 0 .58.12 1.15.35 1.68l.27.21c.39.31.78.63 1.15.93l.57.44c.29.23.53.5.71.78l-.06.11c-.2.38-.44.73-.75 1.04-.32.32-.69.58-1.14.75l-.11.06c-.28-.18-.55-.42-.78-.71l-.44-.57c-.3-.37-.62-.76-.93-1.15l-.21-.27-.08-.23c-.53.23-1.1.35-1.68.35z"/></svg>
-                        <span class="block font-bold text-gray-700">WhatsApp</span>
-                        <span class="text-sm text-gray-500">081220458305</span>
-                    </a>
-                </div>
-
-                <!-- Email -->
-                <div class="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <a href="mailto:tobinesia@gmail.com" target="_blank" class="text-red-500 contact-icon-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
-                        <span class="block font-bold text-gray-700">Email</span>
-                        <span class="text-sm text-gray-500">tobinesia@gmail.com</span>
-                    </a>
-                </div>
-
-                <!-- Media Sosial -->
-                <div class="p-4 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                    <span class="block font-bold text-gray-700 mb-3">Media Sosial</span>
-                    <div class="flex justify-center space-x-4">
-                        <!-- Facebook -->
-                        <a href="https://www.facebook.com/people/TOBI-Tim-Olimpiade-Biologi-Indonesia/100083141664371/" target="_blank" class="text-blue-700 contact-icon-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3 8h-2V7h-3v3H8v2h2v4h3v-4h2l1-2z"/></svg>
-                        </a>
-                        <!-- Instagram -->
-                        <a href="https://www.instagram.com/tobi.indonesia" target="_blank" class="text-pink-500 contact-icon-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 10a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zM12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zm3.75-5.25a.75.75 0 100-1.5.75.75 0 000 1.5z"/></svg>
-                        </a>
-                        <!-- Youtube -->
-                        <a href="https://www.youtube.com/@TOBI-Official-YT" target="_blank" class="text-red-600 contact-icon-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm5.727 7.02c-.144-.76-.48-1.488-1.02-2.115l-.015-.018c-.54-.627-1.258-1.092-2.018-1.246-1.554-.316-3.106-.316-4.659-.316-1.553 0-3.105 0-4.659.316-.76.154-1.478.619-2.018 1.246l-.015.018c-.54.627-.876 1.355-1.02 2.115-.316 1.637-.316 3.275-.316 4.912s0 3.275.316 4.912c.144.76.48 1.488 1.02 2.115l.015.018c.54.627 1.258 1.092 2.018 1.246 1.553.316 3.106.316 4.659.316s3.106 0 4.659-.316c.76-.154 1.478-.619 2.018-1.246l.015-.018c.54-.627.876-1.355 1.02-2.115.316-1.637.316-3.275.316-4.912s0-3.275-.316-4.912zm-8.727 9.87c-1.23 0-2.227-1.095-2.227-2.448V8.552c0-1.353.997-2.448 2.227-2.448s2.227 1.095 2.227 2.448v3.899c0 1.353-.997 2.448-2.227 2.448z"/></svg>
-                        </a>
+                    <div class="flex items-center gap-4">
+                        <a href="https://instagram.com/efryansyh_10" target="_blank" class="p-4 bg-slate-50 text-slate-400 hover:text-pink-600 hover:bg-pink-50 rounded-2xl transition-all border border-slate-100"><i data-lucide="instagram"></i></a>
+                        <a href="mailto:muhammadefryansyahryan@gmail.com" class="p-4 bg-slate-50 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-2xl transition-all border border-slate-100"><i data-lucide="mail"></i></a>
                     </div>
-                    <span class="text-sm text-gray-500 mt-2 block">@TOBI-Official-YT</span>
                 </div>
             </div>
+        </div>
+        <!-- Decorative Element -->
+        <div class="absolute right-0 bottom-0 opacity-10 hidden lg:block translate-y-1/4 translate-x-1/4">
+             <i data-lucide="dna" class="w-[600px] h-[600px] text-emerald-600"></i>
+        </div>
+    </section>
 
-            <a href="#top" class="text-blue-500 hover:text-blue-700 font-medium float-right mt-6">↑ Kembali ke atas</a>
-            <div class="clearfix"></div>
-        </section>
+    <!-- Section Profil -->
+    <section id="about" class="bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative order-2 lg:order-1">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-emerald-100 rounded-full blur-3xl opacity-60"></div>
+                    <div class="relative z-10 bg-white p-3 rounded-[3rem] shadow-2xl rotate-2">
+                        <img src="https://raw.githubusercontent.com/muhammadefryansyahryan-cloud/Portofolio/refs/heads/main/WhatsApp%20Image%202026-01-29%20at%2009.29.01%20(1).jpeg" alt="Riset Biologi" class="w-full h-[500px] object-cover rounded-[2.5rem] grayscale hover:grayscale-0 transition-all duration-700">
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 space-y-8">
+                    <div class="space-y-4">
+                        <h2 class="text-sm font-bold text-emerald-600 tracking-[0.3em] uppercase">Tentang Saya</h2>
+                        <h3 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">Analisis Presisi di Balik Setiap Eksperimen.</h3>
+                    </div>
+                    <p class="text-lg text-slate-600 leading-relaxed font-medium">
+                        Terdaftar resmi dalam <span class="font-bold text-slate-900">SIMT (Sistem Informasi Manajemen Talenta)</span>, saya mendedikasikan waktu untuk mendalami biologi bukan hanya sebagai ilmu hafalan, tapi sebagai sistem logis yang menakjubkan.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm card-hover">
+                            <div class="text-4xl font-black text-emerald-600 mb-1 font-mono italic">03</div>
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Top Semifinal Nasional</div>
+                        </div>
+                        <div class="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm card-hover">
+                            <div class="text-4xl font-black text-slate-900 mb-1 font-mono italic">04</div>
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Ranking Provinsi Jabar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Section: Penutup (Footer-like) -->
-        <footer class="bg-white p-6 rounded-xl shadow-xl text-center text-gray-500">
-            <p>&copy; 2024 TOBI (Tim Olimpiade Biologi Indonesia). Semua Hak Cipta Dilindungi.</p>
-            <p class="text-sm mt-1">Dirancang untuk calon peserta OSN Biologi dengan semangat #JayaBiologi!</p>
-        </footer>
+    <!-- Section Materi -->
+    <section id="resources" class="bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="space-y-4">
+                    <h2 class="text-sm font-bold text-emerald-600 tracking-[0.3em] uppercase">Pusat Pembelajaran</h2>
+                    <h3 class="text-4xl md:text-5xl font-black text-slate-900">Materi & Riset Digital.</h3>
+                </div>
+                <p class="text-slate-500 max-w-sm font-medium">Koleksi ringkasan eksklusif dan studi kasus yang saya susun selama persiapan kompetisi nasional.</p>
+            </div>
 
-    </main>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Card Netlify Utama -->
+                <a href="https://osnbiologi.netlify.app/" target="_blank" class="group relative bg-emerald-600 rounded-[3rem] p-10 overflow-hidden card-hover lg:col-span-1 shadow-2xl shadow-emerald-200">
+                    <div class="absolute -right-10 -bottom-10 opacity-20 group-hover:scale-110 transition-transform duration-700">
+                        <i data-lucide="layout" class="w-48 h-48 text-white"></i>
+                    </div>
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div class="w-16 h-16 bg-white text-emerald-600 rounded-2xl flex items-center justify-center mb-8">
+                            <i data-lucide="zap" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">Main Platform</h4>
+                            <p class="text-emerald-50 text-md mb-8 leading-relaxed">Portal utama interaktif OSN Biologi Muhammad Efryansyah.</p>
+                            <span class="inline-flex items-center gap-2 text-white font-black uppercase tracking-widest text-[10px] bg-emerald-700/50 px-4 py-2 rounded-full">
+                                Kunjungi Situs <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card Google Drive -->
+                <a href="https://drive.google.com/drive/folders/1PTUu-xumPrhiP9zlQTSQqpsjW-mwoKHK?usp=drive_link" target="_blank" class="group relative bg-slate-900 rounded-[3rem] p-10 overflow-hidden card-hover lg:col-span-1">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
+                        <i data-lucide="database" class="w-48 h-48 text-white"></i>
+                    </div>
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div class="w-16 h-16 bg-emerald-500 text-slate-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-emerald-500/20">
+                            <i data-lucide="cloud" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-black text-white mb-4 uppercase tracking-tighter">Google Drive</h4>
+                            <p class="text-slate-400 text-md mb-8 leading-relaxed">Repositori ribuan file materi, diktat, dan bank soal IBO.</p>
+                            <span class="inline-flex items-center gap-2 text-emerald-400 font-bold uppercase tracking-widest text-[10px]">
+                                Akses File <i data-lucide="external-link" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card Scribd -->
+                <a href="https://www.scribd.com/presentation/788279583/Studi-Kasus-Pewarisan-Sifat" target="_blank" class="group relative bg-slate-50 border border-slate-100 rounded-[3rem] p-10 overflow-hidden card-hover lg:col-span-1">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div class="w-16 h-16 bg-white text-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-md">
+                            <i data-lucide="file-text" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tighter">Case Study</h4>
+                            <p class="text-slate-500 text-md mb-8 leading-relaxed italic">"Studi Kasus Pewarisan Sifat: Analisis Mekanisme Molekuler."</p>
+                            <span class="inline-flex items-center gap-2 text-emerald-600 font-bold uppercase tracking-widest text-[10px]">
+                                Baca Publikasi <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Prestasi -->
+    <section id="achievements" class="bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-20 space-y-4">
+                    <h2 class="text-sm font-bold text-emerald-600 tracking-[0.3em] uppercase">Rekam Jejak</h2>
+                    <h3 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter">Achievement Record</h3>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Item 1 -->
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-8 p-10 bg-white rounded-[2.5rem] border border-slate-100 card-hover group shadow-sm">
+                        <div class="w-24 h-24 emerald-gradient text-white rounded-3xl flex flex-col items-center justify-center shrink-0 shadow-xl shadow-emerald-200">
+                            <span class="text-2xl font-black font-mono">2025</span>
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-[10px] font-black text-emerald-600 uppercase tracking-widest mb-2">Kemendikbud Ristek - Puspresnas</div>
+                            <h4 class="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">Finalis OSN Nasional Biologi</h4>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-4 py-1.5 rounded-full border border-emerald-100 uppercase">Top 3 Semifinal Nasional</span>
+                                <span class="bg-slate-100 text-slate-600 text-[10px] font-bold px-4 py-1.5 rounded-full border border-slate-200 uppercase">Juara 4 Provinsi Jabar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-8 p-10 bg-white rounded-[2.5rem] border border-slate-100 card-hover group shadow-sm">
+                        <div class="w-24 h-24 bg-amber-500 text-white rounded-3xl flex flex-col items-center justify-center shrink-0 shadow-xl shadow-amber-200">
+                            <span class="text-2xl font-black font-mono">2024</span>
+                            <i data-lucide="medal" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-[10px] font-black text-amber-600 uppercase tracking-widest mb-2">Indonesia Scientific Society (ISS)</div>
+                            <h4 class="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">Medali Emas OBI ISS</h4>
+                            <p class="text-slate-500 mt-2 font-medium">Peraih emas dalam Olimpiade Biologi Indonesia tingkat nasional.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-8 p-10 bg-white rounded-[2.5rem] border border-slate-100 card-hover group shadow-sm">
+                        <div class="w-24 h-24 bg-blue-600 text-white rounded-3xl flex flex-col items-center justify-center shrink-0 shadow-xl shadow-blue-200">
+                            <span class="text-2xl font-black font-mono">2025</span>
+                            <i data-lucide="star" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2">Kabupaten Subang</div>
+                            <h4 class="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">Juara 1 OSN Kabupaten</h4>
+                            <p class="text-slate-500 mt-2 font-medium">Peringkat tertinggi seleksi kabupaten untuk bidang studi Biologi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Kontak -->
+    <section id="contact" class="bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-slate-900 rounded-[4rem] overflow-hidden relative shadow-2xl">
+                <div class="grid lg:grid-cols-2">
+                    <div class="p-12 lg:p-24 space-y-12">
+                        <div class="space-y-6">
+                            <h2 class="text-4xl lg:text-6xl font-black text-white leading-tight">Mulai Diskusi <br><span class="text-emerald-400 italic">Sekarang.</span></h2>
+                            <p class="text-slate-400 text-lg leading-relaxed">Hubungi saya untuk kolaborasi riset, sharing materi, atau diskusi talenta sains.</p>
+                        </div>
+                        
+                        <div class="space-y-8">
+                            <a href="mailto:muhammadefryansyahryan@gmail.com" class="flex items-center gap-6 group">
+                                <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-emerald-600 transition-all border border-white/10">
+                                    <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1">Email Resmi</div>
+                                    <div class="text-white font-bold">muhammadefryansyahryan@gmail.com</div>
+                                </div>
+                            </a>
+                            <a href="https://instagram.com/efryansyh_10" target="_blank" class="flex items-center gap-6 group">
+                                <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-pink-600 transition-all border border-white/10">
+                                    <i data-lucide="instagram" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Instagram</div>
+                                    <div class="text-white font-bold">@efryansyh_10</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="p-12 lg:p-24 bg-white/5 backdrop-blur-sm border-l border-white/10">
+                        <form class="space-y-8" onsubmit="event.preventDefault()">
+                            <div class="space-y-3">
+                                <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Nama</label>
+                                <input type="text" placeholder="Nama Anda" class="w-full bg-white/5 border border-white/10 rounded-2xl py-5 px-8 text-white focus:ring-2 focus:ring-emerald-500 outline-none transition-all font-bold">
+                            </div>
+                            <div class="space-y-3">
+                                <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Pesan</label>
+                                <textarea rows="4" placeholder="Tuliskan pesan atau ajakan kolaborasi" class="w-full bg-white/5 border border-white/10 rounded-2xl py-5 px-8 text-white focus:ring-2 focus:ring-emerald-500 outline-none transition-all font-bold resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full emerald-gradient text-slate-900 py-6 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-[1.02] transition-all shadow-xl shadow-emerald-500/20">
+                                Kirim Pesan <i data-lucide="send" class="ml-2 w-4 h-4 inline"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white text-center">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-center gap-3 mb-8">
+                <div class="w-8 h-8 emerald-gradient rounded-lg flex items-center justify-center text-white text-[10px] font-black">E</div>
+                <span class="text-xl font-black text-slate-900 tracking-tighter">EFRYANSYAH<span class="text-emerald-600">.</span></span>
+            </div>
+            <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em]">
+                Verified Portfolio • 2025 • SMAN 1 Subang
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Inisialisasi Ikon Lucide
+        lucide.createIcons();
+
+        // Smooth Scroll handling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId.startsWith("#")) {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
